@@ -35,10 +35,12 @@ extension MainVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "table Cell", for: indexPath) as! ProductCell
-        cell.nameLabel.text = AppData.shared.userItems[indexPath.row].product.name
-        cell.brandLabel.text = AppData.shared.userItems[indexPath.row].product.brand
+        let currentRow = indexPath.row
+        cell.nameLabel.text = AppData.shared.userItems[currentRow].product.name
+        cell.brandLabel.text = AppData.shared.userItems[currentRow].product.brand
+        cell.currentRow = currentRow
         
-        let quantity = AppData.shared.userItems[indexPath.row].quantity
+        let quantity = AppData.shared.userItems[currentRow].quantity
         cell.quantityLabel.text = "x ".appending(quantity.description)
         cell.quantityStepper.value = Double(quantity)
         

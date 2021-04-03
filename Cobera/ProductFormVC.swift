@@ -73,7 +73,7 @@ class ProductFormVC: UIViewController, QuantityStepperViewControllerDelegate {
      */
     func checkForEmptyTextFields() -> Bool {
         var emptyTextField = false
-        let textFields = getTextfields(view: view)
+        let textFields = view.getTextfields()
         for textField in textFields {
             if textField.text == "" {
                 textField.shake()
@@ -81,23 +81,6 @@ class ProductFormVC: UIViewController, QuantityStepperViewControllerDelegate {
             }
         }
         return emptyTextField
-    }
-    
-    /**
-     Gets all the text fields in the view.
-     - Parameter view: The view in wich the text fields are.
-     - Returns : An array of all the text fields.
-     */
-    func getTextfields(view: UIView) -> [UITextField] {
-        var results = [UITextField]()
-        for subview in view.subviews as [UIView] {
-            if let textField = subview as? UITextField {
-                results += [textField]
-            } else {
-                results += getTextfields(view: subview)
-            }
-        }
-        return results
     }
     
     func updateQuantity(_ quantity: Int) {
@@ -111,17 +94,5 @@ class ProductFormVC: UIViewController, QuantityStepperViewControllerDelegate {
             }
             return
         }
-    }
-}
-
-extension UITextField {
-    func shake() {
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.duration = 0.05
-        animation.repeatCount = 5
-        animation.autoreverses = true
-        animation.fromValue = CGPoint(x: self.center.x - 4.0, y: self.center.y)
-        animation.toValue = CGPoint(x: self.center.x + 4.0, y: self.center.y)
-        layer.add(animation, forKey: "position")
     }
 }

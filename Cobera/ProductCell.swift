@@ -14,6 +14,8 @@ class ProductCell: UITableViewCell {
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var quantityStepper: UIStepper!
     
+    var currentRow: Int!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,15 +26,11 @@ class ProductCell: UITableViewCell {
     }
     
     @IBAction func updateQuantity(_ sender: UIStepper){
-        if let parent = self.superview as? UITableView {
-            let row = parent.indexPath(for: self)!.row
-            let newQuantity = Int(sender.value)
-            
-            quantityLabel.text = "x ".appending(newQuantity.description)
-            
-            AppData.shared.userItems[row].quantity = newQuantity
-            AppData.shared.updateStoredProducts()
-        }
+        
+        let newQuantity = Int(sender.value)
+        quantityLabel.text = "x ".appending(newQuantity.description)
+
+        AppData.shared.updateQuantity(newQuantity, forRow: currentRow)
         
     }
 

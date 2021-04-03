@@ -49,7 +49,7 @@ extension AppData {
         updateStoredProducts()
     }
     
-    private func getStoredProducts() {
+    func getStoredProducts() {
         let dataPath = docsURL.appendingPathComponent(documentName)
         if let data = try? Data(contentsOf: dataPath) {
             do {
