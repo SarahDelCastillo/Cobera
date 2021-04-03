@@ -38,14 +38,14 @@ class ProductDetailVC: UIViewController, QuantityStepperViewControllerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "embed quantity" {
+        if segue.identifier == Segues.embedQuantity {
             if let destinationVC = segue.destination as? QuantityStepperViewController {
                 destinationVC.delegate = self
             }
             return
         }
         
-        if segue.identifier == "add existing product" {
+        if segue.identifier == Segues.addExistingProduct {
             let destinationVC = segue.destination
             print(destinationVC)
             return
@@ -55,6 +55,6 @@ class ProductDetailVC: UIViewController, QuantityStepperViewControllerDelegate {
     @IBAction func addProduct() {
         print("adding", quantity!, "of", product.debugDescription)
         AppData.shared.addProduct(product, quantity)
-        performSegue(withIdentifier: "add existing product", sender: nil)
+        performSegue(withIdentifier: Segues.addExistingProduct, sender: nil)
     }
 }

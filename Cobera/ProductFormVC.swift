@@ -62,7 +62,7 @@ class ProductFormVC: UIViewController, QuantityStepperViewControllerDelegate {
             }
 
             AppData.shared.addProduct(newProduct, quantity)
-            performSegue(withIdentifier: "add new product", sender: nil)
+            performSegue(withIdentifier: Segues.addNewProduct, sender: nil)
                 
         }
     }
@@ -105,7 +105,7 @@ class ProductFormVC: UIViewController, QuantityStepperViewControllerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "embed quantity" {
+        if segue.identifier == Segues.embedQuantity {
             if let destinationVC = segue.destination as? QuantityStepperViewController {
                 destinationVC.delegate = self
             }

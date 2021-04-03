@@ -18,8 +18,7 @@ class MainVC: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "add product" {
-            
+        if segue.identifier == Segues.addProduct {
         }
     }
     

@@ -127,10 +127,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             // If it exists...
             if product != nil {
                 self.product = product
-                self.performSegue(withIdentifier: "show product detail", sender: self)
+                self.performSegue(withIdentifier: Segues.showProductDetail, sender: self)
                 
             } else {
-                self.performSegue(withIdentifier: "show product form", sender: self)
+                self.performSegue(withIdentifier: Segues.showProductForm, sender: self)
                 
             }
         }
@@ -141,12 +141,12 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 extension ScannerViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case "show product detail":
+        case Segues.showProductDetail:
             if let destinationVC = segue.destination as? ProductDetailVC {
                 destinationVC.product = product
             }
             
-        case "show product form":
+        case Segues.showProductForm:
             if let destinationVC = segue.destination as? ProductFormVC {
                 destinationVC.barcode = barcode
             }
