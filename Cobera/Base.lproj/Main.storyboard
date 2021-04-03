@@ -50,26 +50,37 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7b3-3w-080">
-                                                    <rect key="frame" x="221" y="29.5" width="21" height="21"/>
+                                                    <rect key="frame" x="219" y="29.5" width="21" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Xux-sO-ghb">
+                                                    <rect key="frame" x="260" y="24" width="94" height="32"/>
+                                                    <connections>
+                                                        <action selector="updateQuantity:" destination="ngH-M0-oqH" eventType="valueChanged" id="EdA-Af-9et"/>
+                                                    </connections>
+                                                </stepper>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="2S7-25-kvE" firstAttribute="top" secondItem="H9B-72-KgA" secondAttribute="top" constant="10" id="4zQ-04-Tab"/>
                                                 <constraint firstAttribute="bottom" secondItem="Xea-Sl-6Pd" secondAttribute="bottom" constant="10" id="HGG-o0-VCD"/>
+                                                <constraint firstItem="Xux-sO-ghb" firstAttribute="centerY" secondItem="H9B-72-KgA" secondAttribute="centerY" id="NvC-T9-8W3"/>
                                                 <constraint firstItem="Xea-Sl-6Pd" firstAttribute="leading" secondItem="H9B-72-KgA" secondAttribute="leading" constant="20" symbolic="YES" id="Nzg-Sr-c9B"/>
+                                                <constraint firstItem="7b3-3w-080" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Xea-Sl-6Pd" secondAttribute="trailing" constant="155" id="O0u-cV-yGx"/>
                                                 <constraint firstItem="7b3-3w-080" firstAttribute="centerY" secondItem="H9B-72-KgA" secondAttribute="centerY" id="SWX-Xm-Ih5"/>
                                                 <constraint firstItem="2S7-25-kvE" firstAttribute="leading" secondItem="H9B-72-KgA" secondAttribute="leading" constant="20" symbolic="YES" id="ZqS-uy-wJA"/>
-                                                <constraint firstAttribute="trailing" secondItem="7b3-3w-080" secondAttribute="trailing" constant="132" id="hru-Cj-ghl"/>
+                                                <constraint firstAttribute="trailing" secondItem="Xux-sO-ghb" secondAttribute="trailing" constant="20" symbolic="YES" id="aiU-JF-8Ff"/>
                                                 <constraint firstItem="Xea-Sl-6Pd" firstAttribute="top" secondItem="2S7-25-kvE" secondAttribute="bottom" constant="10" id="htc-db-plA"/>
+                                                <constraint firstItem="7b3-3w-080" firstAttribute="leading" relation="lessThanOrEqual" secondItem="2S7-25-kvE" secondAttribute="trailing" constant="94" id="j09-xo-MPt"/>
+                                                <constraint firstItem="Xux-sO-ghb" firstAttribute="leading" secondItem="7b3-3w-080" secondAttribute="trailing" constant="20" id="zeI-tg-jn6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="brandLabel" destination="Xea-Sl-6Pd" id="7da-q0-E4B"/>
                                             <outlet property="nameLabel" destination="2S7-25-kvE" id="TKp-R2-I9k"/>
                                             <outlet property="quantityLabel" destination="7b3-3w-080" id="lii-Nb-Wv6"/>
+                                            <outlet property="quantityStepper" destination="Xux-sO-ghb" id="tnP-54-8KK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -78,6 +89,7 @@
                         <viewLayoutGuide key="safeArea" id="Oba-es-6Yn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="pGc-xt-hrV" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Oba-es-6Yn" secondAttribute="leading" constant="308" id="1oa-Dj-XXV"/>
                             <constraint firstItem="Oba-es-6Yn" firstAttribute="bottom" secondItem="ziu-jm-f4M" secondAttribute="bottom" id="7Sl-dI-QsV"/>
                             <constraint firstItem="pGc-xt-hrV" firstAttribute="top" secondItem="Oba-es-6Yn" secondAttribute="top" id="8Yy-d6-PEv"/>
                             <constraint firstItem="ziu-jm-f4M" firstAttribute="leading" secondItem="Oba-es-6Yn" secondAttribute="leading" constant="20" id="ClU-RC-GFx"/>
