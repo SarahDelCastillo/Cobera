@@ -8,6 +8,55 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Menu View Controller-->
+        <scene sceneID="HOK-3s-XcG">
+            <objects>
+                <viewController id="oxz-qi-6h5" customClass="MenuViewController" customModule="Cobera" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tuj-eJ-11W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rww-cD-Lnd">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="Et6-oq-acj" rowHeight="43.5" style="IBUITableViewCellStyleDefault" id="hDQ-SR-9q1">
+                                        <rect key="frame" x="0.0" y="49.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hDQ-SR-9q1" id="0Q3-7i-Yd3">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Et6-oq-acj">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Brg-pa-jJg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Rww-cD-Lnd" firstAttribute="top" secondItem="Brg-pa-jJg" secondAttribute="top" id="5Tj-Kc-kwg"/>
+                            <constraint firstItem="Rww-cD-Lnd" firstAttribute="bottom" secondItem="Brg-pa-jJg" secondAttribute="bottom" id="YRm-no-rbk"/>
+                            <constraint firstItem="Rww-cD-Lnd" firstAttribute="leading" secondItem="Brg-pa-jJg" secondAttribute="leading" id="dMg-Y3-WSU"/>
+                            <constraint firstItem="Rww-cD-Lnd" firstAttribute="trailing" secondItem="Brg-pa-jJg" secondAttribute="trailing" id="jeg-1Q-vpt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Rww-cD-Lnd" id="nGy-ce-KmI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lnz-Mp-fzx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="170" y="-591"/>
+        </scene>
         <!--Cobera-->
         <scene sceneID="f12-XE-LOf">
             <objects>
@@ -18,6 +67,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGc-xt-hrV">
                                 <rect key="frame" x="308" y="88" width="86" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="g7D-xi-Q48"/>
+                                </constraints>
                                 <state key="normal" title="Add Product"/>
                                 <connections>
                                     <segue destination="sX0-Lh-ctz" kind="show" identifier="add product" id="eNW-eA-ttj"/>
@@ -25,7 +77,6 @@
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ziu-jm-f4M">
                                 <rect key="frame" x="20" y="155" width="374" height="707"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="table Cell" rowHeight="80" id="ngH-M0-oqH" customClass="ProductCell" customModule="Cobera" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="374" height="80"/>
@@ -85,17 +136,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MR3-AB-srR">
+                                <rect key="frame" x="20" y="88" width="30" height="30"/>
+                                <state key="normal" title="Sort"/>
+                                <connections>
+                                    <segue destination="oxz-qi-6h5" kind="popoverPresentation" identifier="show sorting options" popoverAnchorView="MR3-AB-srR" id="ohF-d6-Mun">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Oba-es-6Yn"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="pGc-xt-hrV" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Oba-es-6Yn" secondAttribute="leading" constant="308" id="1oa-Dj-XXV"/>
-                            <constraint firstItem="Oba-es-6Yn" firstAttribute="bottom" secondItem="ziu-jm-f4M" secondAttribute="bottom" id="7Sl-dI-QsV"/>
                             <constraint firstItem="pGc-xt-hrV" firstAttribute="top" secondItem="Oba-es-6Yn" secondAttribute="top" id="8Yy-d6-PEv"/>
                             <constraint firstItem="ziu-jm-f4M" firstAttribute="leading" secondItem="Oba-es-6Yn" secondAttribute="leading" constant="20" id="ClU-RC-GFx"/>
                             <constraint firstItem="Oba-es-6Yn" firstAttribute="trailing" secondItem="ziu-jm-f4M" secondAttribute="trailing" constant="20" id="VXh-Ll-czk"/>
+                            <constraint firstItem="MR3-AB-srR" firstAttribute="top" secondItem="Oba-es-6Yn" secondAttribute="top" id="VrQ-Hr-owz"/>
+                            <constraint firstItem="ziu-jm-f4M" firstAttribute="top" secondItem="pGc-xt-hrV" secondAttribute="bottom" constant="37" id="Zer-yY-n5C"/>
                             <constraint firstItem="Oba-es-6Yn" firstAttribute="trailing" secondItem="pGc-xt-hrV" secondAttribute="trailing" constant="20" id="eVr-Qv-DDa"/>
-                            <constraint firstItem="ziu-jm-f4M" firstAttribute="top" secondItem="pGc-xt-hrV" secondAttribute="bottom" constant="37" id="foT-y6-wD0"/>
+                            <constraint firstItem="Oba-es-6Yn" firstAttribute="bottom" secondItem="ziu-jm-f4M" secondAttribute="bottom" id="fs0-8W-BlB"/>
+                            <constraint firstItem="pGc-xt-hrV" firstAttribute="leading" relation="lessThanOrEqual" secondItem="MR3-AB-srR" secondAttribute="trailing" constant="258" id="ixg-TC-kxY"/>
+                            <constraint firstItem="MR3-AB-srR" firstAttribute="leading" secondItem="Oba-es-6Yn" secondAttribute="leading" constant="20" id="ode-cy-Xww"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cobera" id="QGL-C5-JMc"/>
@@ -301,51 +363,51 @@
             <objects>
                 <viewController id="PnE-aY-EOA" customClass="ProductFormVC" customModule="Cobera" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cA5-D5-E00">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XZl-HJ-iPa">
-                                <rect key="frame" x="148" y="69" width="118.5" height="34"/>
+                                <rect key="frame" x="148" y="113" width="118.5" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product brand" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X5F-Zm-zga">
-                                <rect key="frame" x="146.5" y="197" width="121" height="34"/>
+                                <rect key="frame" x="146.5" y="241" width="121" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Capacity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mJA-lg-kAA">
-                                <rect key="frame" x="105" y="133" width="85" height="34"/>
+                                <rect key="frame" x="105" y="177" width="85" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="unit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TIn-R8-OgE">
-                                <rect key="frame" x="221" y="133" width="53" height="34"/>
+                                <rect key="frame" x="221" y="177" width="53" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="barcode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEf-wq-5dw">
-                                <rect key="frame" x="179" y="29" width="56.5" height="18"/>
+                                <rect key="frame" x="179" y="73" width="56.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLQ-jc-buG">
-                                <rect key="frame" x="164" y="339" width="86" height="30"/>
+                                <rect key="frame" x="164" y="383" width="86" height="30"/>
                                 <state key="normal" title="Add product"/>
                                 <connections>
                                     <action selector="addProduct:" destination="PnE-aY-EOA" eventType="touchUpInside" id="gUM-xa-ceE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YB8-b9-7Y4">
-                                <rect key="frame" x="20" y="17" width="48" height="30"/>
+                                <rect key="frame" x="20" y="61" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <segue destination="fuz-0J-3cH" kind="unwind" identifier="cancel product form" unwindAction="cancel:" id="OsW-Sf-J7H"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B82-m7-DrI">
-                                <rect key="frame" x="20" y="261" width="374" height="41"/>
+                                <rect key="frame" x="20" y="305" width="374" height="41"/>
                                 <connections>
                                     <segue destination="8xt-yy-bWB" kind="embed" identifier="embed quantity" id="WGq-Lv-X6Q"/>
                                 </connections>
@@ -460,9 +522,12 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="WGq-Lv-X6Q"/>
-        <segue reference="Wsh-im-D2C"/>
+        <segue reference="Qbi-i2-IcX"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
