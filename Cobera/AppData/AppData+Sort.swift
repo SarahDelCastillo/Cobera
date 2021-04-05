@@ -9,7 +9,7 @@ import Foundation
 
 extension AppData {
     
-    func sort(by: SortingBy, order: SortingOrder) {
+    func sort(by: SortingParameter, order: SortingOrder) {
         guard userItems != nil else { return }
         userItems.sort { first, second in
             

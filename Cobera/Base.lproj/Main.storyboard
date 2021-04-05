@@ -8,55 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Menu View Controller-->
-        <scene sceneID="HOK-3s-XcG">
-            <objects>
-                <viewController id="oxz-qi-6h5" customClass="MenuViewController" customModule="Cobera" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Tuj-eJ-11W">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rww-cD-Lnd">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="Et6-oq-acj" rowHeight="43.5" style="IBUITableViewCellStyleDefault" id="hDQ-SR-9q1">
-                                        <rect key="frame" x="0.0" y="49.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hDQ-SR-9q1" id="0Q3-7i-Yd3">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Et6-oq-acj">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Brg-pa-jJg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Rww-cD-Lnd" firstAttribute="top" secondItem="Brg-pa-jJg" secondAttribute="top" id="5Tj-Kc-kwg"/>
-                            <constraint firstItem="Rww-cD-Lnd" firstAttribute="bottom" secondItem="Brg-pa-jJg" secondAttribute="bottom" id="YRm-no-rbk"/>
-                            <constraint firstItem="Rww-cD-Lnd" firstAttribute="leading" secondItem="Brg-pa-jJg" secondAttribute="leading" id="dMg-Y3-WSU"/>
-                            <constraint firstItem="Rww-cD-Lnd" firstAttribute="trailing" secondItem="Brg-pa-jJg" secondAttribute="trailing" id="jeg-1Q-vpt"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="Rww-cD-Lnd" id="nGy-ce-KmI"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lnz-Mp-fzx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="170" y="-591"/>
-        </scene>
         <!--Cobera-->
         <scene sceneID="f12-XE-LOf">
             <objects>
@@ -140,9 +91,7 @@
                                 <rect key="frame" x="20" y="88" width="30" height="30"/>
                                 <state key="normal" title="Sort"/>
                                 <connections>
-                                    <segue destination="oxz-qi-6h5" kind="popoverPresentation" identifier="show sorting options" popoverAnchorView="MR3-AB-srR" id="ohF-d6-Mun">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="showSortingMenu:" destination="awX-e2-yiK" eventType="touchUpInside" id="qD5-t3-AtO"/>
                                 </connections>
                             </button>
                         </subviews>

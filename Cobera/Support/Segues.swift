@@ -19,5 +19,4 @@ enum Segues {
     static let cancelScanner = "cancel scanner"
     static let cancelProductDetail = "cancel product detail"
     static let cancelProductForm = "cancel product form"
-    static let showSortingOptions = "show sorting options"
 }
