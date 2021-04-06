@@ -123,7 +123,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Cobera" id="QGL-C5-JMc">
                         <barButtonItem key="leftBarButtonItem" image="gearshape" catalog="system" id="avG-Wj-cPs"/>
-                        <barButtonItem key="rightBarButtonItem" image="person" catalog="system" id="X1j-Fc-SBi"/>
+                        <barButtonItem key="rightBarButtonItem" image="person" catalog="system" id="X1j-Fc-SBi">
+                            <connections>
+                                <action selector="showAuthController:" destination="awX-e2-yiK" id="mHB-Q7-aww"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ziu-jm-f4M" id="Pwx-7K-coN"/>
@@ -579,7 +583,7 @@
                                             <constraint firstAttribute="height" constant="44" id="nbm-OS-4Nr"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" smartInsertDeleteType="yes" textContentType="email"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm email*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWm-GG-PVw">
                                         <rect key="frame" x="0.0" y="66.5" width="374" height="14.5"/>
@@ -678,6 +682,7 @@
                         <outlet property="confirmEmailTextField" destination="OuL-bu-iPX" id="9f2-ge-DnB"/>
                         <outlet property="emailTextField" destination="n2U-VU-ZN8" id="N5e-rG-RGl"/>
                         <outlet property="loginOrRegister" destination="2Sc-gd-lUI" id="Or9-ZV-Exc"/>
+                        <outlet property="logoutButton" destination="0Yv-1P-sVW" id="ajE-tB-vbX"/>
                         <outlet property="mainButton" destination="39L-x7-6Qi" id="Dpg-RE-c0a"/>
                         <outlet property="passwordTextField" destination="GX7-38-Hyx" id="mUD-Pj-3dR"/>
                     </connections>

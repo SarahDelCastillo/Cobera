@@ -51,4 +51,9 @@ class MainVC: UIViewController {
         presentOptionsPopover(withItems: [[asc, desc], [sortbyQuantity, sortbyName]],
                               fromButton: sender)
     }
+    
+    @IBAction func showAuthController(_ sender: UIButton){
+        performSegue(withIdentifier: Segues.showAuth, sender: nil)
+    }
+    
 }
