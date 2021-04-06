@@ -10,7 +10,7 @@ import UIKit
 class ProductCell: UITableViewCell {
 
     @IBOutlet weak var brandLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameLabel: MarqueeLabel!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var quantityStepper: UIStepper!
     
@@ -29,7 +29,7 @@ class ProductCell: UITableViewCell {
         
         let newQuantity = Int(sender.value)
         quantityLabel.text = "x ".appending(newQuantity.description)
-
+        
         AppData.shared.updateQuantity(newQuantity, forRow: currentRow)
         
     }

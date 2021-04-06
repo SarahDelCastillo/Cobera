@@ -36,7 +36,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2S7-25-kvE">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2S7-25-kvE" customClass="MarqueeLabel" customModule="Cobera" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="10" width="107" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="ZBe-Lx-Frf"/>
@@ -44,6 +44,18 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="scrollRate">
+                                                            <real key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
+                                                            <real key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="trailingBuffer">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="tapToScroll" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xea-Sl-6Pd">
                                                     <rect key="frame" x="20" y="45" width="46" height="25"/>
@@ -51,13 +63,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7b3-3w-080">
-                                                    <rect key="frame" x="219" y="29.5" width="21" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="x 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7b3-3w-080">
+                                                    <rect key="frame" x="219.5" y="29.5" width="20.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Xux-sO-ghb">
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Xux-sO-ghb">
                                                     <rect key="frame" x="260" y="24" width="94" height="32"/>
                                                     <connections>
                                                         <action selector="updateQuantity:" destination="ngH-M0-oqH" eventType="valueChanged" id="EdA-Af-9et"/>
@@ -74,7 +86,7 @@
                                                 <constraint firstItem="2S7-25-kvE" firstAttribute="leading" secondItem="H9B-72-KgA" secondAttribute="leading" constant="20" symbolic="YES" id="ZqS-uy-wJA"/>
                                                 <constraint firstAttribute="trailing" secondItem="Xux-sO-ghb" secondAttribute="trailing" constant="20" symbolic="YES" id="aiU-JF-8Ff"/>
                                                 <constraint firstItem="Xea-Sl-6Pd" firstAttribute="top" secondItem="2S7-25-kvE" secondAttribute="bottom" constant="10" id="htc-db-plA"/>
-                                                <constraint firstItem="7b3-3w-080" firstAttribute="leading" relation="lessThanOrEqual" secondItem="2S7-25-kvE" secondAttribute="trailing" constant="94" id="j09-xo-MPt"/>
+                                                <constraint firstItem="7b3-3w-080" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2S7-25-kvE" secondAttribute="trailing" constant="10" id="j09-xo-MPt"/>
                                                 <constraint firstItem="Xux-sO-ghb" firstAttribute="leading" secondItem="7b3-3w-080" secondAttribute="trailing" constant="20" id="zeI-tg-jn6"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -469,6 +481,11 @@
             <point key="canvasLocation" x="1933" y="1318"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="2S7-25-kvE">
+            <size key="intrinsicContentSize" width="107" height="20.5"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="WGq-Lv-X6Q"/>
         <segue reference="Qbi-i2-IcX"/>
