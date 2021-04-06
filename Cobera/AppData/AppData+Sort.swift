@@ -9,11 +9,11 @@ import Foundation
 
 extension AppData {
     
-    func sort(by: SortingParameter, order: SortingOrder) {
+    func sortItems() {
         guard userItems != nil else { return }
         userItems.sort { first, second in
             
-            switch (by, order) {
+            switch (currentSortingParameter, currentSortingOrder) {
             case (.quantity, .desc):
                 return first.quantity > second.quantity
                 
@@ -25,6 +25,9 @@ extension AppData {
                 
             case (.name, .asc):
                 return first.product.name < second.product.name
+            
+            default:
+                fatalError("Incorrect sorting parameters: \(currentSortingOrder.debugDescription), \(currentSortingParameter.debugDescription)")
             }
         }
         updateStoredProducts()

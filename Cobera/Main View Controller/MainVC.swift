@@ -11,8 +11,22 @@ class MainVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var currentSortingOrder: SortingOrder!
-    var currentSortingParameter: SortingParameter!
+    var currentSortingOrder: SortingOrder! {
+        get {
+            AppData.shared.currentSortingOrder
+        }
+        set {
+            AppData.shared.currentSortingOrder = newValue
+        }
+    }
+    var currentSortingParameter: SortingParameter! {
+        get {
+            AppData.shared.currentSortingParameter
+        }
+        set {
+            AppData.shared.currentSortingParameter = newValue
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +35,6 @@ class MainVC: UIViewController {
         
         tableView.layer.cornerRadius = 20
         tableView.tableFooterView = UIView()
-        
-        currentSortingOrder = .asc
-        currentSortingParameter = .quantity
     }
     
     override func viewWillAppear(_ animated: Bool) {

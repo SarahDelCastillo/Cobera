@@ -5,8 +5,7 @@
 //  Created by Emilio Del Castillo on 06/04/2021.
 //
 
-import Foundation
-
+import UIKit
 
 extension MainVC: UIPopoverPresentationControllerDelegate, OptionItemListViewControllerDelegate {
     func didSelectOptionItem(from viewController: OptionPopoverViewController, with item: OptionItem) {
@@ -17,11 +16,11 @@ extension MainVC: UIPopoverPresentationControllerDelegate, OptionItemListViewCon
         viewController.dismiss(animated: true) {
             // Update the sorting preferences. An item has not both parameters (order and parameter)
             // so we need to keep our current parameter if the item returns nil
-            self.currentSortingOrder     = item.order ?? self.currentSortingOrder
+            self.currentSortingOrder = item.order ?? self.currentSortingOrder
             self.currentSortingParameter = item.parameter ?? self.currentSortingParameter
             
-            AppData.shared.sort(by: self.currentSortingParameter,
-                                order: self.currentSortingOrder)
+            AppData.shared.sortItems()
+            
             DispatchQueue.main.async {
                 let allSections = 0..<self.tableView.numberOfSections
                 self.tableView.reloadSections(IndexSet(allSections), with: .automatic)

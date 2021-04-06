@@ -64,4 +64,18 @@ extension AppData {
             userItems = []
         }
     }
+    
+    func loadUserPreferences() {
+        if let rawValue = defaults.object(forKey: "sortingOrder") as? String {
+            currentSortingOrder = SortingOrder(rawValue: rawValue)!
+        } else {
+            currentSortingOrder = .asc
+        }
+        if let rawValue = defaults.object(forKey: "sortingParameter") as? String {
+            currentSortingParameter = SortingParameter(rawValue: rawValue)!
+        } else {
+            currentSortingParameter = .quantity
+        }
+        
+    }
 }
