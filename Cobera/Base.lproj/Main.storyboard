@@ -8,6 +8,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Authentication View Controller-->
+        <scene sceneID="a9i-wC-UI1">
+            <objects>
+                <viewController id="5aq-n8-HqD" customClass="AuthenticationViewController" customModule="Cobera" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zdp-4V-exS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="UJJ-FD-xRv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wq4-A2-pUf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1067" y="-640"/>
+        </scene>
         <!--Cobera-->
         <scene sceneID="f12-XE-LOf">
             <objects>
@@ -121,9 +136,13 @@
                             <constraint firstItem="MR3-AB-srR" firstAttribute="leading" secondItem="Oba-es-6Yn" secondAttribute="leading" constant="20" id="ode-cy-Xww"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Cobera" id="QGL-C5-JMc"/>
+                    <navigationItem key="navigationItem" title="Cobera" id="QGL-C5-JMc">
+                        <barButtonItem key="leftBarButtonItem" image="gearshape" catalog="system" id="avG-Wj-cPs"/>
+                        <barButtonItem key="rightBarButtonItem" image="person" catalog="system" id="X1j-Fc-SBi"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ziu-jm-f4M" id="Pwx-7K-coN"/>
+                        <segue destination="5aq-n8-HqD" kind="presentation" identifier="show authentication" id="SeA-ky-NCa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2MX-qC-8Pe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -491,6 +510,8 @@
         <segue reference="Qbi-i2-IcX"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
