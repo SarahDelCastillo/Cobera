@@ -52,14 +52,8 @@ extension UIViewController{
     func handleError(_ error: Error) {
         if let errorCode = AuthErrorCode(rawValue: error._code) {
             print(errorCode.errorMessage)
-            let alert = UIAlertController(title: "Error", message: errorCode.errorMessage, preferredStyle: .alert)
-
-            let okAction = UIAlertAction(title: "Ok", style: .default)
-
-            alert.addAction(okAction)
-
-            self.present(alert, animated: true)
-
+            displaySimpleAlert(title: "Error", message: errorCode.errorMessage)
+            
         }
     }
     
