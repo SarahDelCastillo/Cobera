@@ -24,7 +24,8 @@ extension AppData {
             
             guard let data = snapshot.value as? NSDictionary else {
                 // Usually this means that data is NSNull
-                completion(.failure(.wrongData))
+                // It means that the user hasn't uploaded any items yet.
+                completion(.success([]))
                 return
             }
             
@@ -72,7 +73,8 @@ extension AppData {
         rootNode.child(path).observeSingleEvent(of: .value) { snapshot in
             guard let data = snapshot.value as? NSDictionary else {
                 // Usually this means that data is NSNull
-                completion(.failure(.wrongData))
+                // It means that the user hasn't uploaded any items yet.
+                completion(.success([]))
                 return
             }
             
