@@ -41,7 +41,7 @@ class MainVC: UIViewController {
         tableView.reloadData()
     }
     
-    @IBAction func showSortingMenu(_ sender: UIButton){
+    @IBAction func showSortingMenu(_ sender: UIButton) {
         let asc  = SortingOption(text: "Ascending" , isSelected: (currentSortingOrder == .asc) , order: .asc)
         let desc = SortingOption(text: "Descending", isSelected: (currentSortingOrder == .desc), order: .desc)
         
@@ -52,8 +52,11 @@ class MainVC: UIViewController {
                               fromButton: sender)
     }
     
-    @IBAction func showAuthController(_ sender: UIButton){
+    @IBAction func showAuthController(_ sender: UIButton) {
         performSegue(withIdentifier: Segues.showAuth, sender: nil)
     }
     
+    @IBAction func showSettingsController(_ sender: UIButton) {
+        performSegue(withIdentifier: Segues.showSetings, sender: nil)
+    }
 }

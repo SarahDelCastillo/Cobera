@@ -20,4 +20,5 @@ enum Segues {
     static let cancelProductDetail = "cancel product detail"
     static let cancelProductForm = "cancel product form"
     static let showAuth = "show authentication"
+    static let showSetings = "show settings"
 }

@@ -122,7 +122,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cobera" id="QGL-C5-JMc">
-                        <barButtonItem key="leftBarButtonItem" image="gearshape" catalog="system" id="avG-Wj-cPs"/>
+                        <barButtonItem key="leftBarButtonItem" image="gearshape" catalog="system" id="avG-Wj-cPs">
+                            <connections>
+                                <action selector="showSettingsController:" destination="awX-e2-yiK" id="gpY-BR-EX0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="person" catalog="system" id="X1j-Fc-SBi">
                             <connections>
                                 <action selector="showAuthController:" destination="awX-e2-yiK" id="mHB-Q7-aww"/>
@@ -132,6 +136,7 @@
                     <connections>
                         <outlet property="tableView" destination="ziu-jm-f4M" id="Pwx-7K-coN"/>
                         <segue destination="hBG-fX-CED" kind="presentation" identifier="show authentication" id="w8b-Op-TCF"/>
+                        <segue destination="bY2-77-KxA" kind="presentation" identifier="show settings" id="B9U-pQ-iTH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2MX-qC-8Pe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -181,7 +186,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="MHn-FN-eGT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1886.9565217391305" y="118.52678571428571"/>
+            <point key="canvasLocation" x="1919" y="119"/>
         </scene>
         <!--Add ProductVC-->
         <scene sceneID="Jn4-HW-Odh">
@@ -223,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QFC-YL-Alu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1067" y="119"/>
+            <point key="canvasLocation" x="1003" y="119"/>
         </scene>
         <!--Product DetailVC-->
         <scene sceneID="YWi-Wy-H6I">
@@ -325,58 +330,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOm-Y6-Tqa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Hej-I0-CgG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2302.898550724638" y="895.98214285714278"/>
+            <point key="canvasLocation" x="2265" y="896"/>
         </scene>
         <!--Product FormVC-->
         <scene sceneID="OwU-C4-2ex">
             <objects>
                 <viewController id="PnE-aY-EOA" customClass="ProductFormVC" customModule="Cobera" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cA5-D5-E00">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XZl-HJ-iPa">
-                                <rect key="frame" x="148" y="113" width="118.5" height="34"/>
+                                <rect key="frame" x="148" y="69" width="118.5" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product brand" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X5F-Zm-zga">
-                                <rect key="frame" x="146.5" y="241" width="121" height="34"/>
+                                <rect key="frame" x="146.5" y="197" width="121" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Capacity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mJA-lg-kAA">
-                                <rect key="frame" x="105" y="177" width="85" height="34"/>
+                                <rect key="frame" x="105" y="133" width="85" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="unit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TIn-R8-OgE">
-                                <rect key="frame" x="221" y="177" width="53" height="34"/>
+                                <rect key="frame" x="221" y="133" width="53" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="barcode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEf-wq-5dw">
-                                <rect key="frame" x="179" y="73" width="56.5" height="18"/>
+                                <rect key="frame" x="179" y="29" width="56.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLQ-jc-buG">
-                                <rect key="frame" x="164" y="383" width="86" height="30"/>
+                                <rect key="frame" x="164" y="339" width="86" height="30"/>
                                 <state key="normal" title="Add product"/>
                                 <connections>
                                     <action selector="addProduct:" destination="PnE-aY-EOA" eventType="touchUpInside" id="gUM-xa-ceE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YB8-b9-7Y4">
-                                <rect key="frame" x="20" y="61" width="48" height="30"/>
+                                <rect key="frame" x="20" y="17" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <segue destination="fuz-0J-3cH" kind="unwind" identifier="cancel product form" unwindAction="cancel:" id="OsW-Sf-J7H"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B82-m7-DrI">
-                                <rect key="frame" x="20" y="305" width="374" height="41"/>
+                                <rect key="frame" x="20" y="261" width="374" height="41"/>
                                 <connections>
                                     <segue destination="8xt-yy-bWB" kind="embed" identifier="embed quantity" id="WGq-Lv-X6Q"/>
                                 </connections>
@@ -486,7 +491,49 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmf-k7-DJH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1933" y="1318"/>
+            <point key="canvasLocation" x="1919" y="1337"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="SyV-Od-khO">
+            <objects>
+                <viewController id="bY2-77-KxA" customClass="SettingsViewController" customModule="Cobera" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Th-rf-XIo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfS-Fw-ChQ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRh-a1-uYI">
+                                        <rect key="frame" x="160.5" y="16" width="93" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="93" id="9yp-8m-EnG"/>
+                                            <constraint firstAttribute="height" constant="22" id="Bht-aj-lWI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="FRh-a1-uYI" firstAttribute="centerX" secondItem="jfS-Fw-ChQ" secondAttribute="centerX" id="6GI-cZ-vr9"/>
+                                    <constraint firstAttribute="height" constant="54" id="WMW-un-BDD"/>
+                                    <constraint firstItem="FRh-a1-uYI" firstAttribute="centerY" secondItem="jfS-Fw-ChQ" secondAttribute="centerY" id="cYL-ha-h66"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="I0w-YM-nzO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jfS-Fw-ChQ" firstAttribute="top" secondItem="I0w-YM-nzO" secondAttribute="top" id="S92-4r-jps"/>
+                            <constraint firstItem="I0w-YM-nzO" firstAttribute="trailing" secondItem="jfS-Fw-ChQ" secondAttribute="trailing" id="dUK-ID-XAI"/>
+                            <constraint firstItem="jfS-Fw-ChQ" firstAttribute="leading" secondItem="I0w-YM-nzO" secondAttribute="leading" id="n71-fn-SyG"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="14H-tQ-lZU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-246" y="896"/>
         </scene>
         <!--Authentication View Controller-->
         <scene sceneID="HHj-xR-ADP">
@@ -689,7 +736,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIC-dR-1b9" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1067" y="-586"/>
+            <point key="canvasLocation" x="587" y="896"/>
         </scene>
     </scenes>
     <designables>
@@ -698,8 +745,8 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="WGq-Lv-X6Q"/>
-        <segue reference="Qbi-i2-IcX"/>
+        <segue reference="jyb-rv-DRZ"/>
+        <segue reference="Wsh-im-D2C"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="eye.slash.fill" catalog="system" width="128" height="82"/>
