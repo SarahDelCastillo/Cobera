@@ -13,21 +13,23 @@ extension AppData {
         rootNode.updateChildValues(update)
     }
     
-    func writeItemToDatabase(item: UserItem){
+    func writeItemsToDatabase(items: [UserItem]){
         guard isLoggedIn else { return }
         
-        let itemType = item.type.rawValue
-        let itemId = item.product.barcode
-        
-        let path = "Users/\(userId!)/items/\(itemType)/\(itemId)"
-        
         var update = [String: Any]()
-        if item.type == .manual {
-            update = [path: ["quantity": "\(item.quantity)",
-                             "product": item.product.dictionary]]
-            
-        } else {
-            update = [path: ["quantity": "\(item.quantity)"]]
+        var path = "Users/\(userId!)/items/"
+        
+        for item in items {
+            let itemType = item.type.rawValue
+            let itemId = item.product.barcode
+            path += "\(itemType)/\(itemId)"
+            if item.type == .manual {
+                update[path] = ["quantity": "\(item.quantity)",
+                                 "product": item.product.dictionary]
+                
+            } else {
+                update[path] = ["quantity": "\(item.quantity)"]
+            }
         }
         
         rootNode.updateChildValues(update)
