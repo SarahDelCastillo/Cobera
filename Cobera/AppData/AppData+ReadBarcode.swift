@@ -8,11 +8,11 @@
 import Foundation
 
 extension AppData {
-    func readBarcode(_ barcode: String, completion: @escaping (Product?) -> Void) {
+    func readBarcode(_ barcode: String, completion: @escaping (Result<Product, DatabaseError>) -> Void) {
         rootNode.child("Products").child(barcode).observeSingleEvent(of: .value) { (snapshot) in
             if snapshot.value is NSNull {
                 print("Barcode didn't match any existing product.")
-                completion(nil)
+                completion(.failure(.noData))
                 
             } else {
                 guard let data = snapshot.value as? NSDictionary,
@@ -24,7 +24,7 @@ extension AppData {
                 else {
                     // FIXME: Make a list of possible errors
                     print("Incorrect data:", snapshot.value!)
-                    completion(nil)
+                    completion(.failure(.wrongData))
                     return
                 }
                 
@@ -35,7 +35,7 @@ extension AppData {
                                            name: name,
                                            capacity: capacity,
                                            capacityUnit: Product.CapacityUnit(rawValue: capacityUnit)!)
-                completion(foundProduct)
+                completion(.success(foundProduct))
             }
         }
     }

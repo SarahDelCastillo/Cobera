@@ -122,16 +122,13 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func getProductFromBarcode(_ barcode: String){
-        AppData.shared.readBarcode(barcode) { (product) in
-            
-            // If it exists...
-            if product != nil {
+        AppData.shared.readBarcode(barcode) { (result) in
+            switch result {
+            case .success(let product):
                 self.product = product
                 self.performSegue(withIdentifier: Segues.showProductDetail, sender: self)
-                
-            } else {
+            case .failure(_):
                 self.performSegue(withIdentifier: Segues.showProductForm, sender: self)
-                
             }
         }
     }
