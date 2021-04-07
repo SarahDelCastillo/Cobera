@@ -7,15 +7,15 @@
 
 import Foundation
 
-enum CapacityUnit: String, CaseIterable {
-    case mililitre = "ml"
-    case centilitre = "cl"
-    case litre = "l"
-    case gram = "g"
-    case kilo = "kg"
-}
-
 class Product: NSObject, NSCoding {
+    enum CapacityUnit: String, CaseIterable {
+        case mililitre = "ml"
+        case centilitre = "cl"
+        case litre = "l"
+        case gram = "g"
+        case kilo = "kg"
+    }
+    
     func encode(with coder: NSCoder) {
         coder.encode(barcode, forKey: "barcode")
         coder.encode(brand, forKey: "brand")

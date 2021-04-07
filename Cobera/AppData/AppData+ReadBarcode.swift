@@ -34,7 +34,7 @@ extension AppData {
                                            brand: brand,
                                            name: name,
                                            capacity: capacity,
-                                           capacityUnit: CapacityUnit(rawValue: capacityUnit)!)
+                                           capacityUnit: Product.CapacityUnit(rawValue: capacityUnit)!)
                 completion(foundProduct)
             }
         }
