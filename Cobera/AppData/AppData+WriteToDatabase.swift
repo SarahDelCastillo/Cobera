@@ -19,17 +19,15 @@ extension AppData {
         let itemType = item.type.rawValue
         let itemId = item.product.barcode
         
-        let path = "Users/\(userId!)/items/\(itemType)/"
+        let path = "Users/\(userId!)/items/\(itemType)/\(itemId)"
         
         var update = [String: Any]()
         if item.type == .manual {
-            update = [path: ["id": "\(itemId)",
-                             "quantity": "\(item.quantity)",
+            update = [path: ["quantity": "\(item.quantity)",
                              "product": item.product.dictionary]]
             
         } else {
-            update = [path: ["id": "\(itemId)",
-                             "quantity": "\(item.quantity)"]]
+            update = [path: ["quantity": "\(item.quantity)"]]
         }
         
         rootNode.updateChildValues(update)
