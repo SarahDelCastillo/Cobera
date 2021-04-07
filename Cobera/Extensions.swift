@@ -62,6 +62,24 @@ extension UIViewController{
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         present(alert, animated: true)
     }
+    
+    /**
+     Creates and displays an activity indicator.
+     - Parameter animating: Determines if the activity indicator starts animating.
+     */
+    func createActivityIndicator(animating: Bool = true) -> UIActivityIndicatorView {
+        
+        let spinner = UIActivityIndicatorView(frame: view.frame)
+        spinner.style = .large
+        spinner.hidesWhenStopped = true
+        view.addSubview(spinner)
+        
+        if animating {
+            spinner.startAnimating()
+        }
+        
+        return spinner
+    }
 }
 
 extension AuthErrorCode {
