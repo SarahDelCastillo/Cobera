@@ -37,6 +37,11 @@ class AppData {
         }
     }
     
+    enum DatabaseError: Error {
+        case noData
+        case wrongData
+    }
+    
     init(){
         auth = Auth.auth()
         rootNode = Database.database().reference()
