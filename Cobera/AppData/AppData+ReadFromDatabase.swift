@@ -59,6 +59,11 @@ extension AppData {
         }
     }
     
+    /**
+     Reads all the scanned items from the database.
+     - Parameter completion: The closure to be executed after the network call returns.
+     - Parameter result: The result of the network call. It may contain an array of UserItem.
+     */
     func readScannedItems(completion: @escaping (_ result: Result<[UserItem], DatabaseError>) -> Void ){
         guard isLoggedIn else { return }
         
@@ -114,6 +119,43 @@ extension AppData {
                 // Failure to get the ids
                 completion(.failure(.wrongData))
             }
+        }
+    }
+    
+    /**
+     Reads all the items from the database.
+     - Parameter completion: The closure to be executed after the network call returns.
+     - Parameter result: The result of the network call. It may contain an array of UserItem.
+     */
+    func readAllItems(completion: @escaping (_ result: Result<[UserItem], DatabaseError>) -> Void) {
+        var items = [UserItem]()
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
+        readManualItems { result in
+            switch result {
+            case .success(let manualItems):
+                items += manualItems
+                
+            case .failure(let error):
+                dispatchGroup.leave()
+                completion(.failure(error))
+            }
+        }
+        
+        readScannedItems { result in
+            switch result {
+            case .success(let scannedItems):
+                items += scannedItems
+                dispatchGroup.leave()
+                
+            case .failure(let error):
+                dispatchGroup.leave()
+                completion(.failure(error))
+            }
+        }
+        dispatchGroup.notify(queue: .main) {
+            completion(.success(items))
         }
     }
 }
