@@ -17,7 +17,7 @@ class AppData {
     //MARK: - Local access
     let docsURL: URL!
     let documentName = "user_products.plist"
-    var userItems: [UserProduct]!
+    var userItems: [UserItem]!
     
     //MARK: - User defaults
     let defaults: UserDefaults = {

@@ -54,7 +54,7 @@ class ProductDetailVC: UIViewController, QuantityStepperViewControllerDelegate {
     
     @IBAction func addProduct() {
         print("adding", quantity!, "of", product.debugDescription)
-        AppData.shared.addProduct(product, quantity)
+        AppData.shared.addProduct(product, quantity, type: .scanned)
         performSegue(withIdentifier: Segues.addExistingProduct, sender: nil)
     }
 }

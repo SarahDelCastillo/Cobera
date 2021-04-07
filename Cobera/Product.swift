@@ -73,25 +73,33 @@ class Product: NSObject, NSCoding {
     }
 }
 
-class UserProduct: NSObject, NSCoding {
+class UserItem: NSObject, NSCoding {
+    enum TypeOfAddition: String {
+        case scanned, manual
+    }
+    
     var product: Product
     var quantity: Int
+    var type: TypeOfAddition
     
     func encode(with coder: NSCoder) {
         coder.encode(product, forKey: "product")
         coder.encode(quantity, forKey: "quantity")
+        coder.encode(type.rawValue, forKey: "type")
     }
     
     required convenience init?(coder: NSCoder) {
         let prod = coder.decodeObject(forKey: "product") as! Product
         let quant = coder.decodeInteger(forKey: "quantity")
+        let type = TypeOfAddition(rawValue: (coder.decodeObject(forKey: "type")) as! String)!
         
-        self.init(product: prod, quantity: quant)
+        self.init(product: prod, quantity: quant, type)
     }
     
-    init(product: Product, quantity: Int) {
+    init(product: Product, quantity: Int, _ typeOfAddition: TypeOfAddition) {
         self.product = product
         self.quantity = quantity
+        self.type = typeOfAddition
     }
     
 }

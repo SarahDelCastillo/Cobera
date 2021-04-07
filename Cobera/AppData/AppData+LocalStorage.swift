@@ -9,7 +9,7 @@ import Foundation
 
 extension AppData {
     
-    func addProduct(_ newProduct: Product, _ quantity: Int) {
+    func addProduct(_ newProduct: Product, _ quantity: Int, type: UserItem.TypeOfAddition) {
         guard userItems != nil else { return }
         print("Adding product...")
         
@@ -19,7 +19,7 @@ extension AppData {
         }) {
             userItems[duplicate].quantity += quantity
         } else {
-            userItems.append(UserProduct(product: newProduct, quantity: quantity))
+            userItems.append(UserItem(product: newProduct, quantity: quantity, type))
         }
         
         updateStoredProducts()
@@ -53,7 +53,7 @@ extension AppData {
         let dataPath = docsURL.appendingPathComponent(documentName)
         if let data = try? Data(contentsOf: dataPath) {
             do {
-                let foundProducts = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [UserProduct]
+                let foundProducts = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [UserItem]
                 userItems = foundProducts
                 
             } catch {

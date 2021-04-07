@@ -41,7 +41,7 @@ class ProductFormVC: UIViewController, QuantityStepperViewControllerDelegate {
             let brand = brandTextField.text!
             let name = nameTextField.text!
             let capacity = Int(capacityTextField.text!)!
-            guard let unit = CapacityUnit(rawValue: unitTextField.text!) else {
+            guard let unit = Product.CapacityUnit(rawValue: unitTextField.text!) else {
                 unitTextField.shake()
                 return
             }
@@ -61,7 +61,8 @@ class ProductFormVC: UIViewController, QuantityStepperViewControllerDelegate {
                 AppData.shared.writeNewProductToDatabase(newProduct)
             }
 
-            AppData.shared.addProduct(newProduct, quantity)
+            let type: UserItem.TypeOfAddition = manuallyAdded ? .manual : .scanned
+            AppData.shared.addProduct(newProduct, quantity, type: type)
             performSegue(withIdentifier: Segues.addNewProduct, sender: nil)
                 
         }
