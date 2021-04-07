@@ -12,4 +12,26 @@ extension AppData {
         let update = ["Products/\(product.barcode)": product.dictionary]
         rootNode.updateChildValues(update)
     }
+    
+    func writeItemToDatabase(item: UserItem){
+        guard isLoggedIn else { return }
+        
+        let itemType = item.type.rawValue
+        let itemId = item.product.barcode
+        
+        let path = "Users/\(userId!)/items/\(itemType)/"
+        
+        var update = [String: Any]()
+        if item.type == .manual {
+            update = [path: ["id": "\(itemId)",
+                             "quantity": "\(item.quantity)",
+                             "product": item.product.dictionary]]
+            
+        } else {
+            update = [path: ["id": "\(itemId)",
+                             "quantity": "\(item.quantity)"]]
+        }
+        
+        rootNode.updateChildValues(update)
+    }
 }

@@ -19,7 +19,8 @@ extension AppData {
         }) {
             userItems[duplicate].quantity += quantity
         } else {
-            userItems.append(UserItem(product: newProduct, quantity: quantity, type))
+            let item = UserItem(product: newProduct, quantity: quantity, type)
+            userItems.append(item)
         }
         
         updateStoredProducts()

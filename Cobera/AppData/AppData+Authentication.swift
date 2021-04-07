@@ -13,6 +13,9 @@ extension AppData {
             auth.currentUser != nil
         }
     }
+    var userId: String? {
+        auth.currentUser?.uid
+    }
     
     func register(email: String, password: String, completion: @escaping (Result<AuthDataResult?, Error>) -> Void) {
         auth.createUser(withEmail: email, password: password) { (result, error) in
