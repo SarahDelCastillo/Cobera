@@ -16,6 +16,7 @@ extension AppData {
      - Parameter result: The result of the network call. It may contain an array of UserItem.
      */
     func readManualItems(completion: @escaping (_ result: Result<[UserItem], DatabaseError>) -> Void) {
+        // FIXME: Add something in order to retrieve a maximum of items even if some have errors
         guard isLoggedIn else { return }
         
         let path = "Users/\(userId!)/items/manual"
@@ -70,6 +71,7 @@ extension AppData {
      - Parameter result: The result of the network call. It may contain an array of UserItem.
      */
     func readScannedItems(completion: @escaping (_ result: Result<[UserItem], DatabaseError>) -> Void ){
+        // FIXME: Add something in order to retrieve a maximum of items even if some have errors
         guard isLoggedIn else { return }
         
         let path = "Users/\(userId!)/items/scanned"
