@@ -40,7 +40,9 @@ extension AppData {
                           let name         = prod["name"] as? String,
                           let capacity     = prod["capacity"] as? Int,
                           let unit         = prod["capacityUnit"] as? String,
-                          let capacityUnit = Product.CapacityUnit(rawValue: unit)
+                          let capacityUnit = Product.CapacityUnit(rawValue: unit),
+                          let dateString   = item["dateAdded"] as? String,
+                          let dateSource   = TimeInterval(dateString)
                     
                     else {
                         completion(.failure(.wrongData))
@@ -48,7 +50,9 @@ extension AppData {
                     }
                     
                     let product = Product(barcode: id, brand: brand, name: name, capacity: capacity, capacityUnit: capacityUnit)
-                    items.append(UserItem(product: product, quantity: quantity, .manual))
+                    
+                    let date = Date(timeIntervalSinceReferenceDate: dateSource)
+                    items.append(UserItem(product: product, quantity: quantity, .manual, date: date))
                 }
                 completion(.success(items))
                 return
@@ -89,7 +93,10 @@ extension AppData {
                     dispatchGroup.enter()
                     guard let item        = data[id] as? [String: Any],
                           let quantityStr = item["quantity"] as? String,
-                          let quantity    = Int(quantityStr)
+                          let quantity    = Int(quantityStr),
+                          let dateString   = item["dateAdded"] as? String,
+                          let dateSource   = TimeInterval(dateString)
+                    
                     else {
                         dispatchGroup.leave()
                         completion(.failure(.wrongData))
@@ -100,7 +107,8 @@ extension AppData {
                         
                         switch result {
                         case .success(let product):
-                            items.append(UserItem(product: product, quantity: quantity, .scanned))
+                            let date = Date(timeIntervalSinceReferenceDate: dateSource)
+                            items.append(UserItem(product: product, quantity: quantity, .scanned, date: date))
                             dispatchGroup.leave()
                             
                         case .failure(let error):
@@ -127,7 +135,10 @@ extension AppData {
     /**
      Reads all the items from the database.
      - Parameter completion: The closure to be executed after the network call returns.
-     - Parameter result: The result of the network call. It may contain an array of UserItem.
+     - Parameter result: The result of the network call.
+     
+     The completion closure might be called up to three times depending on results from network calls.
+     At least one of those calls is guaranteed to have an array of UserItem, though it might be empty.
      */
     func readAllItems(completion: @escaping (_ result: Result<[UserItem], DatabaseError>) -> Void) {
         var items = [UserItem]()
@@ -140,7 +151,6 @@ extension AppData {
                 items += manualItems
                 
             case .failure(let error):
-                dispatchGroup.leave()
                 completion(.failure(error))
             }
         }
@@ -152,8 +162,8 @@ extension AppData {
                 dispatchGroup.leave()
                 
             case .failure(let error):
-                dispatchGroup.leave()
                 completion(.failure(error))
+                dispatchGroup.leave()
             }
         }
         dispatchGroup.notify(queue: .main) {

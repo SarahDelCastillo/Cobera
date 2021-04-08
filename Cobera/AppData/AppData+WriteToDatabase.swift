@@ -25,10 +25,12 @@ extension AppData {
             path += "\(itemType)/\(itemId)"
             if item.type == .manual {
                 update[path] = ["quantity": "\(item.quantity)",
-                                 "product": item.product.dictionary]
+                                "dateAdded": "\(item.dateString)",
+                                "product": item.product.dictionary]
                 
             } else {
-                update[path] = ["quantity": "\(item.quantity)"]
+                update[path] = ["quantity": "\(item.quantity)",
+                                "dateAdded": "\(item.dateString)"]
             }
         }
         
