@@ -8,7 +8,7 @@
 import AVFoundation
 import UIKit
 
-protocol ScannerViewControllerDelegate {
+protocol ScannerViewControllerDelegate: AnyObject {
     func found(code: String)
 }
 
@@ -19,7 +19,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     @IBOutlet weak var previewView: UIView!
     
     
-    var delegate: ScannerViewControllerDelegate!
+    weak var delegate: ScannerViewControllerDelegate!
     var barcode: String!
     var product: Product!
         
