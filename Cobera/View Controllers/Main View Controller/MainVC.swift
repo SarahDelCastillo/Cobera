@@ -41,6 +41,24 @@ class MainVC: UIViewController {
         tableView.reloadData()
     }
     
+    /**
+     Reloads the table view data, animating the update
+     
+     This function dispatches the work to the main queue:
+     ```
+     DispatchQueue.main.async {
+     let allSections = 0..<self.tableView.numberOfSections
+     self.tableView.reloadSections(IndexSet(allSections), with: .automatic)
+     }
+     ```
+     */
+    func reloadTableViewData() {
+        DispatchQueue.main.async {
+            let allSections = 0..<self.tableView.numberOfSections
+            self.tableView.reloadSections(IndexSet(allSections), with: .automatic)
+        }
+    }
+    
     @IBAction func showSortingMenu(_ sender: UIButton) {
         let asc  = SortingOption(text: "Ascending" , isSelected: (currentSortingOrder == .asc) , order: .asc)
         let desc = SortingOption(text: "Descending", isSelected: (currentSortingOrder == .desc), order: .desc)

@@ -21,10 +21,7 @@ extension MainVC: UIPopoverPresentationControllerDelegate, OptionItemListViewCon
             
             AppData.shared.sortItems()
             
-            DispatchQueue.main.async {
-                let allSections = 0..<self.tableView.numberOfSections
-                self.tableView.reloadSections(IndexSet(allSections), with: .automatic)
-            }
+            self.reloadTableViewData()
         }
     }
     
