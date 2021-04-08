@@ -17,9 +17,10 @@ extension AppData {
         guard isLoggedIn else { return }
         
         var update = [String: Any]()
-        var path = "Users/\(userId!)/items/"
+        var path: String
         
         for item in items {
+            path = "Users/\(userId!)/items/"
             let itemType = item.type.rawValue
             let itemId = item.product.barcode
             path += "\(itemType)/\(itemId)"
