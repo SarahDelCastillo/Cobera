@@ -42,15 +42,16 @@ extension AuthenticationViewController {
                 AppData.shared.register(email: email, password: password) { result in
                     switch result {
                     case .success(_):
-                        self.dismiss(animated: true)
-                        // TODO: Load the data from the database
+                        self.dismiss(animated: true) {
+                            self.delegate.didLogin()
+                        }
+
                     case .failure(let error):
                         self.handleError(error)
                     }
                     spinner.stopAnimating()
                 }
             }
-            
         }
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()

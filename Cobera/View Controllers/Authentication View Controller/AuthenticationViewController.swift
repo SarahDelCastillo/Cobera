@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AuthenticationViewControllerDelegate: AnyObject {
+    func didLogin()
+}
+
 class AuthenticationViewController: UIViewController {
 
     @IBOutlet weak var loginOrRegister: UISegmentedControl!
@@ -20,6 +24,7 @@ class AuthenticationViewController: UIViewController {
     
     @IBOutlet weak var confirmEmailLabel: UILabel!
     
+    weak var delegate: AuthenticationViewControllerDelegate!
     
     var isInLoginMode = true
     private var passwordIsHidden = true
