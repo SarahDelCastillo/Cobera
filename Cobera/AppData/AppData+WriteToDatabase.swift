@@ -37,4 +37,21 @@ extension AppData {
         
         rootNode.updateChildValues(update)
     }
+    
+    func deleteItemFromDatabase(item: UserItem){
+        guard isLoggedIn else { return }
+        
+        let itemType = item.type.rawValue
+        let itemId = item.product.barcode
+        let path = "Users/\(userId!)/items/\(itemType)/\(itemId)"
+        
+        rootNode.child(path).removeValue()
+    }
+    
+    func deleteEverythingFromDatabase() {
+        guard isLoggedIn else { return }
+        
+        rootNode.child("Users/\(userId!)").removeValue()
+        writeItemsToDatabase(items: userItems)
+    }
 }

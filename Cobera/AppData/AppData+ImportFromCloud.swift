@@ -26,5 +26,7 @@ extension AppData {
                 userItems.append(item)
             }
         }
+        updateStoredProducts()
+        writeItemsToDatabase(items: userItems)
     }
 }

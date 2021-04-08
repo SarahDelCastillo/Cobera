@@ -21,6 +21,7 @@ extension AppData {
         } else {
             let item = UserItem(product: newProduct, quantity: quantity, type)
             userItems.append(item)
+            writeItemsToDatabase(items: [item])
         }
         
         updateStoredProducts()
@@ -47,6 +48,7 @@ extension AppData {
     func updateQuantity(_ newQuantity: Int, forRow row: Int){
         assert(userItems != nil, "userItems has not been initialized.")
         userItems[row].quantity = newQuantity
+        writeItemsToDatabase(items: [userItems[row]])
         updateStoredProducts()
     }
     

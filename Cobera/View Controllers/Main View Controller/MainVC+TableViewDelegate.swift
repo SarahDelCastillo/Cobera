@@ -12,6 +12,7 @@ extension MainVC: UITableViewDelegate {
         guard editingStyle == .delete else { return }
         
         let index = indexPath.row
+        AppData.shared.deleteItemFromDatabase(item: AppData.shared.userItems[index])
         AppData.shared.userItems.remove(at: index)
         AppData.shared.updateStoredProducts()
         tableView.deleteRows(at: [indexPath], with: .left)

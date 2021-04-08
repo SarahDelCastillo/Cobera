@@ -41,11 +41,30 @@ extension MainVC: AuthenticationViewControllerDelegate {
                 self.reloadTableViewData()
             }))
             alert.addAction(UIAlertAction(title: "Discard local items", style: .destructive, handler: { _ in
-                AppData.shared.userItems = items
-                self.reloadTableViewData()
+                
+                let alert = UIAlertController(title: "Please confirm", message: "This action cant be undone", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+                    self.handleItems(items: items)
+                }))
+                alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                    AppData.shared.userItems = items
+                    AppData.shared.updateStoredProducts()
+                    self.reloadTableViewData()
+                }))
+                self.present(alert, animated: true)
+                
             }))
             alert.addAction(UIAlertAction(title: "Discard cloud items", style: .destructive, handler: { _ in
-                // TODO: AppData.destroy cloud
+                
+                let alert = UIAlertController(title: "Please confirm", message: "This action cant be undone", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+                    self.handleItems(items: items)
+                }))
+                alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                    AppData.shared.deleteEverythingFromDatabase()
+                }))
+                self.present(alert, animated: true)
+                
             }))
             
             present(alert, animated: true)
