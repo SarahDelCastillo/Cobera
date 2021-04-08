@@ -37,8 +37,8 @@ extension MainVC: AuthenticationViewControllerDelegate {
                 """
             let alert = UIAlertController(title: "Items found", message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Merge with local items", style: .default, handler: { _ in
-                // TODO: merge
-//                AppData.shared.merge()
+                AppData.shared.merge(items: items)
+                self.reloadTableViewData()
             }))
             alert.addAction(UIAlertAction(title: "Discard local items", style: .destructive, handler: { _ in
                 AppData.shared.userItems = items
