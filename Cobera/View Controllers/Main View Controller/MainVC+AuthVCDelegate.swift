@@ -30,7 +30,7 @@ extension MainVC: AuthenticationViewControllerDelegate {
      It presents an alert with the possible actions.
      */
     private func handleItems(items: [UserItem]) {
-        if items.count > 0 && AppData.shared.userItems.count > 0 {
+        if items.count > 0 || AppData.shared.userItems.count > 0 {
             let message = """
                 Your account has items on the cloud.
                 What do you want to do?

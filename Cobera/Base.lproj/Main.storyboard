@@ -334,9 +334,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="j7Q-Mu-uid"/>
                     <connections>
-                        <outlet property="barcodeLabel" destination="hp6-hW-YMH" id="Dyl-xh-lBj"/>
                         <outlet property="brandLabel" destination="KGH-MC-wqK" id="i8h-2c-loo"/>
                         <outlet property="capacityLabel" destination="ZUI-1E-xLv" id="29l-DD-Nyy"/>
+                        <outlet property="identifierLabel" destination="hp6-hW-YMH" id="qi7-xN-gkq"/>
                         <outlet property="nameLabel" destination="0ah-dr-33J" id="Pzp-Dn-dFJ"/>
                         <outlet property="unitLabel" destination="6PW-az-eCK" id="5b3-48-X5i"/>
                         <segue destination="Hej-I0-CgG" kind="unwind" identifier="add existing product" unwindAction="addTest:" id="mH8-QZ-OCY"/>
@@ -429,9 +429,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="efk-Ut-2tI"/>
                     <connections>
-                        <outlet property="barcodeLabel" destination="bEf-wq-5dw" id="KTq-3k-R72"/>
                         <outlet property="brandTextField" destination="X5F-Zm-zga" id="C7X-9Q-oHU"/>
                         <outlet property="capacityTextField" destination="mJA-lg-kAA" id="jKV-Sd-W2C"/>
+                        <outlet property="identifierLabel" destination="bEf-wq-5dw" id="fa1-Bi-CMd"/>
                         <outlet property="nameTextField" destination="XZl-HJ-iPa" id="Y3m-UN-b4l"/>
                         <outlet property="unitTextField" destination="TIn-R8-OgE" id="SEh-af-EfN"/>
                         <segue destination="fuz-0J-3cH" kind="unwind" identifier="add new product" unwindAction="addTest:" id="ZdE-yZ-Ggf"/>
@@ -760,7 +760,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="jyb-rv-DRZ"/>
+        <segue reference="WGq-Lv-X6Q"/>
         <segue reference="Wsh-im-D2C"/>
     </inferredMetricsTieBreakers>
     <resources>
