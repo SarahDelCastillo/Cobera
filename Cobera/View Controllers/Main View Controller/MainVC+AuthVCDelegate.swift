@@ -30,30 +30,38 @@ extension MainVC: AuthenticationViewControllerDelegate {
      It presents an alert with the possible actions.
      */
     private func handleItems(items: [UserItem]) {
-        if items.count > 0 || AppData.shared.userItems.count > 0 {
+        if items.count > 0 {
             let message = """
                 Your account has items on the cloud.
                 What do you want to do?
                 """
             let alert = UIAlertController(title: "Items found", message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Merge with local items", style: .default, handler: { _ in
+            
+            // Different message if local items exist.
+            let actionTitle = (AppData.shared.userItems.count > 0) ? "Merge with local items" : "Download from cloud"
+            alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: { _ in
                 AppData.shared.merge(items: items)
                 self.reloadTableViewData()
             }))
-            alert.addAction(UIAlertAction(title: "Discard local items", style: .destructive, handler: { _ in
-                
-                let alert = UIAlertController(title: "Please confirm", message: "This action cant be undone", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
-                    self.handleItems(items: items)
+            
+            // Only show this option if there are local items to discard.
+            if AppData.shared.userItems.count > 0 {
+                alert.addAction(UIAlertAction(title: "Discard local items", style: .destructive, handler: { _ in
+                    
+                    let alert = UIAlertController(title: "Please confirm", message: "This action cant be undone", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+                        self.handleItems(items: items)
+                    }))
+                    alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                        AppData.shared.userItems = items
+                        AppData.shared.updateStoredProducts()
+                        self.reloadTableViewData()
+                    }))
+                    self.present(alert, animated: true)
+                    
                 }))
-                alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
-                    AppData.shared.userItems = items
-                    AppData.shared.updateStoredProducts()
-                    self.reloadTableViewData()
-                }))
-                self.present(alert, animated: true)
-                
-            }))
+            }
+            
             alert.addAction(UIAlertAction(title: "Discard cloud items", style: .destructive, handler: { _ in
                 
                 let alert = UIAlertController(title: "Please confirm", message: "This action cant be undone", preferredStyle: .alert)
