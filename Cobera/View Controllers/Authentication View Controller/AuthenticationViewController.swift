@@ -84,7 +84,7 @@ class AuthenticationViewController: UIViewController {
     
     @IBAction func logOut(_ sender: UIButton) {
         // TODO: Notify the user if an error happens
-        
+        // FIXME: Users can't know if they've been logged out!
         AppData.shared.logout()
         logoutButton.isHidden = true
     }

@@ -9,7 +9,7 @@ import Foundation
 
 extension AppData {
     func writeNewProductToDatabase(_ product: Product) {
-        let update = ["Products/\(product.barcode)": product.dictionary]
+        let update = ["Products/\(product.identifier)": product.dictionary]
         rootNode.updateChildValues(update)
     }
     
@@ -22,7 +22,7 @@ extension AppData {
         for item in items {
             path = "Users/\(userId!)/items/"
             let itemType = item.type.rawValue
-            let itemId = item.product.barcode
+            let itemId = item.product.identifier
             path += "\(itemType)/\(itemId)"
             if item.type == .manual {
                 update[path] = ["quantity": "\(item.quantity)",
@@ -42,7 +42,7 @@ extension AppData {
         guard isLoggedIn else { return }
         
         let itemType = item.type.rawValue
-        let itemId = item.product.barcode
+        let itemId = item.product.identifier
         let path = "Users/\(userId!)/items/\(itemType)/\(itemId)"
         
         rootNode.child(path).removeValue()

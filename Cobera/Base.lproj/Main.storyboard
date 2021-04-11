@@ -29,17 +29,17 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ziu-jm-f4M">
                                 <rect key="frame" x="20" y="155" width="374" height="707"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="table Cell" rowHeight="80" id="ngH-M0-oqH" customClass="ProductCell" customModule="Cobera" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="table Cell" rowHeight="100" id="ngH-M0-oqH" customClass="ProductCell" customModule="Cobera" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ngH-M0-oqH" id="H9B-72-KgA">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2S7-25-kvE" customClass="MarqueeLabel" customModule="Cobera" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="10" width="107" height="25"/>
+                                                    <rect key="frame" x="20" y="10" width="107" height="60"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="ZBe-Lx-Frf"/>
+                                                        <constraint firstAttribute="height" constant="60" id="PrH-XO-uvq"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -57,20 +57,23 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="tapToScroll" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xea-Sl-6Pd">
-                                                    <rect key="frame" x="20" y="45" width="46" height="25"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Brand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xea-Sl-6Pd">
+                                                    <rect key="frame" x="20" y="80" width="44.5" height="10"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="10" id="HOG-Xk-dDq"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="x 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7b3-3w-080">
-                                                    <rect key="frame" x="219.5" y="29.5" width="20.5" height="21"/>
+                                                    <rect key="frame" x="219.5" y="39.5" width="20.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Xux-sO-ghb">
-                                                    <rect key="frame" x="260" y="24" width="94" height="32"/>
+                                                    <rect key="frame" x="260" y="34" width="94" height="32"/>
                                                     <connections>
                                                         <action selector="updateQuantity:" destination="ngH-M0-oqH" eventType="valueChanged" id="EdA-Af-9et"/>
                                                     </connections>
@@ -106,12 +109,24 @@
                                     <action selector="showSortingMenu:" destination="awX-e2-yiK" eventType="touchUpInside" id="qD5-t3-AtO"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-Xf-O7p">
+                                <rect key="frame" x="188.5" y="88" width="37" height="30"/>
+                                <color key="backgroundColor" red="0.78834122419999997" green="0.31683522460000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="TEST">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="testButton:" destination="awX-e2-yiK" eventType="touchUpInside" id="Rs4-Eu-bPl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Oba-es-6Yn"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="pGc-xt-hrV" firstAttribute="top" secondItem="Oba-es-6Yn" secondAttribute="top" id="8Yy-d6-PEv"/>
+                            <constraint firstItem="kQD-Xf-O7p" firstAttribute="centerX" secondItem="Oba-es-6Yn" secondAttribute="centerX" id="Bfk-kv-wUM"/>
                             <constraint firstItem="ziu-jm-f4M" firstAttribute="leading" secondItem="Oba-es-6Yn" secondAttribute="leading" constant="20" id="ClU-RC-GFx"/>
+                            <constraint firstItem="kQD-Xf-O7p" firstAttribute="top" secondItem="Oba-es-6Yn" secondAttribute="top" id="E3Z-iU-FNN"/>
                             <constraint firstItem="Oba-es-6Yn" firstAttribute="trailing" secondItem="ziu-jm-f4M" secondAttribute="trailing" constant="20" id="VXh-Ll-czk"/>
                             <constraint firstItem="MR3-AB-srR" firstAttribute="top" secondItem="Oba-es-6Yn" secondAttribute="top" id="VrQ-Hr-owz"/>
                             <constraint firstItem="ziu-jm-f4M" firstAttribute="top" secondItem="pGc-xt-hrV" secondAttribute="bottom" constant="37" id="Zer-yY-n5C"/>
@@ -268,7 +283,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ah-dr-33J">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ah-dr-33J" customClass="MarqueeLabel" customModule="Cobera" customModuleProvider="target">
                                         <rect key="frame" x="10" y="81" width="107" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>

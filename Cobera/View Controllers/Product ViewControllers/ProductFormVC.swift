@@ -9,7 +9,7 @@ import UIKit
 
 class ProductFormVC: UIViewController, QuantityStepperViewControllerDelegate {
 
-    @IBOutlet weak var barcodeLabel: UILabel!
+    @IBOutlet weak var identifierLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var brandTextField: UITextField!
     @IBOutlet weak var capacityTextField: UITextField!
@@ -17,14 +17,14 @@ class ProductFormVC: UIViewController, QuantityStepperViewControllerDelegate {
     
     var manuallyAdded = false
     
-    var barcode: String!
+    var identifier: String!
     var product: Product?
     var quantity: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         isModalInPresentation = true
-        barcodeLabel.text = barcode
+        identifierLabel.text = identifier
         
     }
     
@@ -47,11 +47,11 @@ class ProductFormVC: UIViewController, QuantityStepperViewControllerDelegate {
             }
             
             if manuallyAdded {
-                barcode = Product.getUniqueIdentifier(brand: brand, name: name, capacity: capacity, capacityUnit: unit)
+                identifier = Product.getUniqueIdentifier(brand: brand, name: name, capacity: capacity, capacityUnit: unit)
             }
             
             // TODO: Notify the user when a wrong unit is input
-            let newProduct = Product(barcode: barcode,
+            let newProduct = Product(identifier: identifier,
                                      brand: brand,
                                      name: name,
                                      capacity: capacity,

@@ -50,7 +50,7 @@ extension AppData {
                         return
                     }
                     
-                    let product = Product(barcode: id, brand: brand, name: name, capacity: capacity, capacityUnit: capacityUnit)
+                    let product = Product(identifier: id, brand: brand, name: name, capacity: capacity, capacityUnit: capacityUnit)
                     
                     let date = Date(timeIntervalSinceReferenceDate: dateSource)
                     items.append(UserItem(product: product, quantity: quantity, .manual, date: date))

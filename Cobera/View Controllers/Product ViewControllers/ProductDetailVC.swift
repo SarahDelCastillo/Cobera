@@ -10,7 +10,7 @@ import UIKit
 class ProductDetailVC: UIViewController, QuantityStepperViewControllerDelegate {
 
     
-    @IBOutlet weak var barcodeLabel: UILabel!
+    @IBOutlet weak var identifierLabel: UILabel!
     @IBOutlet weak var brandLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var capacityLabel: UILabel!
@@ -26,7 +26,7 @@ class ProductDetailVC: UIViewController, QuantityStepperViewControllerDelegate {
     }
     
     func updateOutlets() {
-        barcodeLabel.text   = product.barcode
+        identifierLabel.text   = product.identifier
         brandLabel.text     = product.brand
         nameLabel.text      = product.name
         capacityLabel.text  = product.capacity.description

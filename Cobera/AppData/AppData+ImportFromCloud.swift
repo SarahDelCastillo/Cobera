@@ -17,7 +17,7 @@ extension AppData {
         for item in items {
             // Prevent duplicates
             if let duplicate = userItems.firstIndex(where: { product in
-                product.product.barcode == item.product.barcode
+                product.product.identifier == item.product.identifier
             }) {
                 userItems[duplicate].quantity += item.quantity
                 

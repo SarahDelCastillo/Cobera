@@ -16,7 +16,7 @@ class Product: NSObject, NSCoding {
         case kilo = "kg"
     }
     
-    var barcode: String
+    var identifier: String
     
     var brand: String
     var name: String
@@ -24,6 +24,9 @@ class Product: NSObject, NSCoding {
     var capacity: Int
     var capacityUnit: CapacityUnit
     
+    /**
+     Retruns a dictionary with all the variables of the instance.
+     */
     var dictionary: [String: Any] {
         return ["name": name,
                 "brand": brand,
@@ -32,7 +35,7 @@ class Product: NSObject, NSCoding {
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(barcode, forKey: "barcode")
+        coder.encode(identifier, forKey: "identifier")
         coder.encode(brand, forKey: "brand")
         coder.encode(name, forKey: "name")
         coder.encode(capacity, forKey: "capacity")
@@ -40,17 +43,17 @@ class Product: NSObject, NSCoding {
     }
     
     required convenience init?(coder: NSCoder) {
-        let barcode = coder.decodeObject(forKey: "barcode") as! String
+        let identifier = coder.decodeObject(forKey: "identifier") as! String
         let brand = coder.decodeObject(forKey: "brand") as! String
         let name = coder.decodeObject(forKey: "name") as! String
         let capacity = coder.decodeInteger(forKey: "capacity")
         let capacityUnit = CapacityUnit(rawValue: coder.decodeObject(forKey: "capacityUnit") as! String)!
         
-        self.init(barcode: barcode, brand: brand, name: name, capacity: capacity, capacityUnit: capacityUnit)
+        self.init(identifier: identifier, brand: brand, name: name, capacity: capacity, capacityUnit: capacityUnit)
     }
     
-    init(barcode: String, brand: String, name: String, capacity: Int, capacityUnit: CapacityUnit) {
-        self.barcode = barcode
+    init(identifier: String, brand: String, name: String, capacity: Int, capacityUnit: CapacityUnit) {
+        self.identifier = identifier
         self.brand = brand
         self.name = name
         self.capacity = capacity

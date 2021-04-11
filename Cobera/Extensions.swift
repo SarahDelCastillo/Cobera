@@ -57,6 +57,11 @@ extension UIViewController{
         }
     }
     
+    /**
+     Displays a simple alert with a dismissing "Ok" action.
+     - Parameter title: The title of the alert.
+     - Parameter message: The message of the alert.
+     */
     func displaySimpleAlert(title: String?, message: String?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))

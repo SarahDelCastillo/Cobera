@@ -30,7 +30,7 @@ extension AppData {
                 
                 print("readBarCode: found", brand, name)
                 
-                let foundProduct = Product(barcode: barcode,
+                let foundProduct = Product(identifier: barcode,
                                            brand: brand,
                                            name: name,
                                            capacity: capacity,

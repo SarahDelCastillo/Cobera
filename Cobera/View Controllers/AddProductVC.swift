@@ -9,10 +9,10 @@ import UIKit
 
 class AddProductVC: UIViewController, ScannerViewControllerDelegate {
 
-    var barcode: String!
+    var identifier: String!
     
     func found(code: String) {
-        barcode = code
+        identifier = code
         self.performSegue(withIdentifier: Segues.showProductForm, sender: self)
         
     }
@@ -28,13 +28,13 @@ class AddProductVC: UIViewController, ScannerViewControllerDelegate {
             
         case Segues.showProductForm:
             if let destinationVC = segue.destination as? ProductFormVC {
-                destinationVC.barcode = barcode
+                destinationVC.identifier = identifier
             }
             
         case Segues.manuallyShowProductForm:
             if let destinationVC = segue.destination as? ProductFormVC {
                 destinationVC.manuallyAdded = true
-                destinationVC.barcode = barcode
+                destinationVC.identifier = identifier
             }
             
             

@@ -145,7 +145,7 @@ extension ScannerViewController {
             
         case Segues.showProductForm:
             if let destinationVC = segue.destination as? ProductFormVC {
-                destinationVC.barcode = barcode
+                destinationVC.identifier = barcode
             }
             
         default:
