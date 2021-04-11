@@ -288,6 +288,17 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="scrollRate">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="trailingBuffer">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Cxb-Y9-IO3">
                                         <rect key="frame" x="0.0" y="121.5" width="127.5" height="20.5"/>
@@ -323,12 +334,14 @@
                             <constraint firstItem="D4q-X5-3rW" firstAttribute="top" secondItem="ZUI-1E-xLv" secondAttribute="bottom" constant="47" id="DJd-IP-68U"/>
                             <constraint firstItem="jpG-RJ-TAN" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="lx3-c0-SR4" secondAttribute="trailing" constant="346" id="GZ2-ys-GVf"/>
                             <constraint firstItem="xRr-cr-W2J" firstAttribute="top" secondItem="65b-zw-MmM" secondAttribute="bottom" constant="150" id="NCY-iV-fBU"/>
+                            <constraint firstItem="65b-zw-MmM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jpG-RJ-TAN" secondAttribute="leading" constant="20" id="ORQ-Am-Ogr"/>
                             <constraint firstItem="lx3-c0-SR4" firstAttribute="leading" secondItem="jpG-RJ-TAN" secondAttribute="leading" constant="20" id="Smu-4L-RRY"/>
                             <constraint firstItem="lx3-c0-SR4" firstAttribute="top" secondItem="jpG-RJ-TAN" secondAttribute="top" constant="20" id="ZXh-wB-mWR"/>
                             <constraint firstItem="xRr-cr-W2J" firstAttribute="centerX" secondItem="jpG-RJ-TAN" secondAttribute="centerX" id="btx-pl-Xlg"/>
                             <constraint firstItem="65b-zw-MmM" firstAttribute="centerX" secondItem="jpG-RJ-TAN" secondAttribute="centerX" id="fPh-Eg-RVr"/>
                             <constraint firstItem="65b-zw-MmM" firstAttribute="top" secondItem="jpG-RJ-TAN" secondAttribute="top" constant="60" id="iho-tj-Eel"/>
                             <constraint firstItem="D4q-X5-3rW" firstAttribute="leading" secondItem="jpG-RJ-TAN" secondAttribute="leading" constant="20" id="l3L-00-OIJ"/>
+                            <constraint firstItem="jpG-RJ-TAN" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="65b-zw-MmM" secondAttribute="trailing" constant="20" id="qDL-JP-594"/>
                             <constraint firstItem="xRr-cr-W2J" firstAttribute="top" secondItem="D4q-X5-3rW" secondAttribute="bottom" constant="62" id="rDr-y8-rOy"/>
                         </constraints>
                     </view>
@@ -760,7 +773,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="WGq-Lv-X6Q"/>
+        <segue reference="jyb-rv-DRZ"/>
         <segue reference="Wsh-im-D2C"/>
     </inferredMetricsTieBreakers>
     <resources>
