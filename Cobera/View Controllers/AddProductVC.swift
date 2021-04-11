@@ -57,8 +57,8 @@ class AddProductVC: UIViewController, ScannerViewControllerDelegate {
         print ("Unwind cancel, from", sourceViewController)
     }
     
-    @IBAction func addTest(_ unwindSegue: UIStoryboardSegue) {
+    @IBAction func addProduct(_ unwindSegue: UIStoryboardSegue) {
         let sourceViewController = unwindSegue.source
-        print("Unwind addTest, from", sourceViewController)
+        print("Unwind addProduct, from", sourceViewController)
     }
 }

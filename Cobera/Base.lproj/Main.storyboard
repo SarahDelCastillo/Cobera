@@ -352,7 +352,7 @@
                         <outlet property="identifierLabel" destination="hp6-hW-YMH" id="qi7-xN-gkq"/>
                         <outlet property="nameLabel" destination="0ah-dr-33J" id="Pzp-Dn-dFJ"/>
                         <outlet property="unitLabel" destination="6PW-az-eCK" id="5b3-48-X5i"/>
-                        <segue destination="Hej-I0-CgG" kind="unwind" identifier="add existing product" unwindAction="addTest:" id="mH8-QZ-OCY"/>
+                        <segue destination="Hej-I0-CgG" kind="unwind" identifier="add existing product" unwindAction="addProduct:" id="mH8-QZ-OCY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOm-Y6-Tqa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -447,7 +447,7 @@
                         <outlet property="identifierLabel" destination="bEf-wq-5dw" id="fa1-Bi-CMd"/>
                         <outlet property="nameTextField" destination="XZl-HJ-iPa" id="Y3m-UN-b4l"/>
                         <outlet property="unitTextField" destination="TIn-R8-OgE" id="SEh-af-EfN"/>
-                        <segue destination="fuz-0J-3cH" kind="unwind" identifier="add new product" unwindAction="addTest:" id="ZdE-yZ-Ggf"/>
+                        <segue destination="fuz-0J-3cH" kind="unwind" identifier="add new product" unwindAction="addProduct:" id="ZdE-yZ-Ggf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7E-EO-yRh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -768,6 +768,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="0ah-dr-33J">
+            <size key="intrinsicContentSize" width="107" height="20.5"/>
+        </designable>
         <designable name="2S7-25-kvE">
             <size key="intrinsicContentSize" width="107" height="20.5"/>
         </designable>
